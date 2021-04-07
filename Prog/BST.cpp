@@ -2,15 +2,11 @@
 
 Node* index(Perso* db)
 {
-
     // create a root node
-
     Node* root = nullptr;
-    cout << "r " << root << endl;
-    cout << "& " << &root << endl;
     // iterate over all reccord in the database table
 
-    for (int i = 0; i < 43; i++) {
+    for (int i = 0; i < 44; i++) {
 
         if (insert(&root, db[i].nom.c_str(), i)) {
 
@@ -29,7 +25,6 @@ Node* index(Perso* db)
 
 }
 
-
 bool insert(Node** current, const char* key, int value) {
 
     // if current is null pointer, we went down to a leave safe for insertion
@@ -46,17 +41,87 @@ bool insert(Node** current, const char* key, int value) {
 
         (*current)->right = nullptr;
     }
-
-    else if (key < (*current)->key) { // key is lower, go to left subtree
-        //A faire à la main
-        //while()
-        return insert(&(*current)->left, key, value);
+    else if (strcmp(key, (*current)->key) < 0) { // key is lower, go to left subtree
+        {
+            int a = 0;
+            Node * nouvelle = (*current);
+            while(a == 0)
+            {
+                if(nouvelle->key < key) //strcmp(nouvelle->key, key) <
+                {
+                    if(nouvelle->right == nullptr)
+                    {
+                        nouvelle->right = new Node;
+                        nouvelle = nouvelle->right;
+                        nouvelle->right = nullptr;
+                        nouvelle->left = nullptr;
+                        a = 1;
+                    }
+                    else
+                    {
+                        nouvelle = nouvelle->right;
+                    }
+                }
+                else
+                {
+                    if(nouvelle->left == nullptr)
+                    {
+                        nouvelle->left = new Node;
+                        nouvelle = nouvelle->left;
+                        nouvelle->right = nullptr;
+                        nouvelle->left = nullptr;
+                        a = 1;
+                    }
+                    else
+                    {
+                        nouvelle = nouvelle->left;
+                    }
+                }
+            }
+            nouvelle->key = key;
+        }
+        //return insert(&(*current)->left, key, value);
     }
-    else if (key > (*current)->key) { // key is higher, go to right subtree
-        //A faire à la main
-        //while()
-        //S'il est > va à droite tant que != nullptr
-        return insert(&(*current)->right, key, value);
+    else if (strcmp((*current)->key, key) > 0) { // key is higher, go to right subtree
+        {
+            int a = 0;
+            Node * nouvelle = (*current);
+            while(a == 0)
+            {
+                if(nouvelle->key < key) //strcmp(key, nouvelle->key) <
+                {
+                    if(nouvelle->right == nullptr)
+                    {
+                        nouvelle->right = new Node;
+                        nouvelle = nouvelle->right;
+                        nouvelle->right = nullptr;
+                        nouvelle->left = nullptr;
+                        a = 1;
+                    }
+                    else
+                    {
+                        nouvelle = nouvelle->right;
+                    }
+                }
+                else
+                {
+                    if(nouvelle->left == nullptr)
+                    {
+                        nouvelle->left = new Node;
+                        nouvelle = nouvelle->left;
+                        nouvelle->right = nullptr;
+                        nouvelle->left = nullptr;
+                        a = 1;
+                    }
+                    else
+                    {
+                        nouvelle = nouvelle->left;
+                    }
+                }
+            }
+            nouvelle->key = key;
+        }
+        //return insert(&(*current)->right, key, value);
 
     }
     else if(key == (*current)->key)

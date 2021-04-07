@@ -18,14 +18,6 @@ struct Perso
 
 };
 
-struct Database
-{
-    string actualString;
-    int valeur;
-    Perso* left;
-    Perso* right;
-};
-
 int LineCompteur(string chemin);
 Perso* load(string chemin);
 Perso* init(Perso*);

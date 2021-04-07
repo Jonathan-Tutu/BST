@@ -18,7 +18,7 @@ int LineCompteur(string chemin)
 
 Perso* load(string chemin)
 {
-    Perso* lala = new Perso[43];
+    Perso* lala = new Perso[44];
     int i = 0;
     int a = 0;
     int n;
