@@ -41,13 +41,13 @@ bool insert(Node** current, const char* key, int value) {
 
         (*current)->right = nullptr;
     }
-    else if (strcmp(key, (*current)->key) < 0) { // key is lower, go to left subtree
+    else if (strcmp(key, (*current)->key) > 0) { // key is lower, go to left subtree //On se base sur le root puis
         {
             int a = 0;
             Node * nouvelle = (*current);
             while(a == 0)
             {
-                if(nouvelle->key < key) //strcmp(nouvelle->key, key) <
+                if(strcmp(key, nouvelle->key) > 0)
                 {
                     if(nouvelle->right == nullptr)
                     {
@@ -82,13 +82,13 @@ bool insert(Node** current, const char* key, int value) {
         }
         //return insert(&(*current)->left, key, value);
     }
-    else if (strcmp((*current)->key, key) > 0) { // key is higher, go to right subtree
+    else if (strcmp(key, (*current)->key) < 0) {//Si le premier est inférieur au premier on le met à droite
         {
             int a = 0;
-            Node * nouvelle = (*current);
+            Node * nouvelle = (*current); //Nouvelle = NouvelleActuelle
             while(a == 0)
             {
-                if(nouvelle->key < key) //strcmp(key, nouvelle->key) <
+                if(strcmp(key, nouvelle->key) > 0)
                 {
                     if(nouvelle->right == nullptr)
                     {

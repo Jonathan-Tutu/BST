@@ -5,16 +5,14 @@ int main()
 {
     Perso *test;
 
+
+    int NbLigne = LineCompteur("C:\\Users\\jonat\\OneDrive\\Bureau\\Test.csv");
+    cout << NbLigne << endl;
     test = load("C:\\Users\\jonat\\OneDrive\\Bureau\\Test.csv"); //Adresse première case tab
 
-    for(int i = 0; i < 43; i++)
-    {
-        cout << test[i].nom << endl;
-    }
-
-    printf("Creating index...\n");
+    printf("Creation de l'index");
     Node* root = index(test);
-    printf("Done creating index.\n");
+    printf("Fin de la creation de l'index");
 
     //lala = init(*test);
 }
