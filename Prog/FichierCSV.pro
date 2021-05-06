@@ -5,9 +5,11 @@ CONFIG -= qt
 
 SOURCES += \
         BST.cpp \
-        Test2.cpp \
+        Database.cpp \
+        LectureFichier.cpp \
         main.cpp
 
 HEADERS += \
     BST.h \
-    Test2.h
+    Database.h \
+    LectureFichier.h

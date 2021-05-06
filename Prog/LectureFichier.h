@@ -9,7 +9,7 @@
 
 using namespace std;
 
-struct Perso
+struct FictionalCharacter
 {
     string prenom;
     string nom;
@@ -19,7 +19,6 @@ struct Perso
 };
 
 int LineCompteur(string chemin);
-Perso* load(string chemin);
-Perso* init(Perso*);
+FictionalCharacter* load(string chemin, int NbLigne);
 
 #endif // TEST2_H

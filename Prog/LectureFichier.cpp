@@ -1,4 +1,4 @@
-#include "Test2.h"
+#include "LectureFichier.h"
 #include <sstream>
 #include <iterator>
 
@@ -16,11 +16,10 @@ int LineCompteur(string chemin)
     return cpt;
 }
 
-Perso* load(string chemin)
+FictionalCharacter* load(string chemin, int NbLigne)
 {
-    Perso* lala = new Perso[44];
+    FictionalCharacter* lala = new FictionalCharacter[NbLigne];
     int i = 0;
-    int a = 0;
     int n;
 
     string line;
